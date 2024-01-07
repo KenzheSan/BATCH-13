@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../lesson.css" />
+    <title>💎 Позиционная игра</title>
+    <style>
+      #gameBox {
+        width: 250px;
+        height: 250px;
+        border: 20px solid rgb(234, 227, 227);
+        position: relative;
+        overflow: hidden;
+      }
+      #activePart {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        transition: all 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <p class="backLink">
+        <a
+          class="link-opacity-10-hover"
+          style="color: white"
+          href="../index.html"
+          >Назад</a
+        >
+      </p>
+
+      <div class="mt-5">
+        <div>
+          <button class="btn btn-primary mb-5" onclick="startGame()">
+            Старт
+          </button>
+          <div id="timer">Оставшееся время: 60 секунд</div>
+        </div>
+
+        <div id="gameBox">
+          <div id="activePart"></div>
+        </div>
+        <button
+          class="btn btn-primary ml-2 mt-5"
+          onclick="checkPosition('top')"
+        >
+          top
+        </button>
+        <button
+          class="btn btn-primary ml-2 mt-5"
+          onclick="checkPosition('bottom')"
+        >
+          bottom
+        </button>
+
+        <button
+          class="btn btn-primary ml-2 mt-5"
+          onclick="checkPosition('left')"
+        >
+          left
+        </button>
+        <button
+          class="btn btn-primary ml-2 mt-5"
+          onclick="checkPosition('right')"
+        >
+          right
+        </button>
+
+        <button
+          class="btn btn-primary ml-2 mt-5"
+          onclick="checkPosition('none')"
+        >
+          none
+        </button>
+
+        <div id="result"></div>
+      </div>
+    </div>
+    <script>
+      let currentPos = "none";
+      let correctGuesses = 0;
+      let timeHtml = document.getElementById("time");
+      let timer, countdown;
+      let timeLeft = 60;
+      let hasAnswered = false; // Был ли дан ответ
+
+      function startGame() {
+        correctGuesses = 0;
+        timeLeft = 60;
+        updateTimer();
+        updateResult();
+        changeBorderColor("none");
+        clearInterval(timer);
+        clearInterval(countdown);
+        timer = setInterval(changePosition, 3000);
+        countdown = setInterval(updateTimer, 1000);
+        setTimeout(endGame, 60000);
+      }
+
+      function updateTimer() {
+        if (timeLeft > 0) {
+          timeLeft--;
+          document.getElementById(
+            "timer"
+          ).innerText = `Оставшееся время: ${timeLeft} секунд`;
+        } else {
+          endGame();
+        }
+      }
+
+      function changePosition() {
+        hasAnswered = false;
+        const positions = ["top", "right", "bottom", "left", "none"];
+        currentPos = positions[Math.floor(Math.random() * positions.length)];
+        changeBorderColor(currentPos);
+      }
+      function changeBorderColor(pos) {
+        const gameBox = document.getElementById("gameBox");
+        const activeColor = "red";
+        const inactiveColor = "aqua";
+
+        if (pos === "none") {
+          gameBox.style.borderTopColor = "white";
+          gameBox.style.borderRightColor = "white";
+          gameBox.style.borderBottomColor = "white";
+          gameBox.style.borderLeftColor = "white";
+        } else {
+          gameBox.style.borderTopColor =
+            pos === "top" ? activeColor : inactiveColor;
+          gameBox.style.borderRightColor =
+            pos === "right" ? activeColor : inactiveColor;
+          gameBox.style.borderBottomColor =
+            pos === "bottom" ? activeColor : inactiveColor;
+          gameBox.style.borderLeftColor =
+            pos === "left" ? activeColor : inactiveColor;
+        }
+      }
+
+      function checkPosition(pos) {
+        if (!hasAnswered && pos === currentPos) {
+          correctGuesses++;
+          updateResult();
+          hasAnswered = true;
+        }
+      }
+      function updateResult() {
+        document.getElementById(
+          "result"
+        ).innerText = `Правильные ответы: ${correctGuesses}`;
+      }
+
+      function endGame() {
+        clearInterval(timer);
+        clearInterval(countdown);
+        alert(`Игра окончена! Вы правильно ответили ${correctGuesses} раз.`);
+        changeBorderColor("none");
+      }
+
+      window.onload = () => {
+        changeBorderColor("none");
+      };
+    </script>
+  </body>
+</html>

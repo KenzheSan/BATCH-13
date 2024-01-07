@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💎 DEMO</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./lesson.css" />
+  </head>
+  <body>
+    <p class="backLink">
+      <a class="link-opacity-10-hover" style="color: white" href="./index.html"
+        >Назад</a
+      >
+    </p>
+    <div class="container mt-5">
+      <button id="addHtml">Добавить HTML</button>
+      <button id="addCss">Добавить CSS</button>
+      <button id="addJs">Добавить JavaScript</button>
+      <button id="restart" class="btn btn-primary mt-3" style="display: none">
+        Заново
+      </button>
+      <hr />
+      <h4 class="display-5" id="timer">TIME</h4>
+
+      <div
+        class="spinner-border mt-3 mb-3"
+        role="status"
+        id="spinner"
+        style="display: none"
+      >
+        <span class="sr-only">Загрузка...</span>
+      </div>
+
+      <div
+        class="modal fade"
+        id="gameModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="gameModalLabel"
+        aria-hidden="true"
+      >
+        <!-- Содержимое модального окна -->
+      </div>
+      <div
+        id="extraAlert"
+        class="alert alert-warning"
+        role="alert"
+        style="display: none"
+      ></div>
+
+      <div id="gameForm" style="display: none">
+        <div>
+          <div class="input-group mb-3">
+            <input
+              id="gameInput"
+              type="text"
+              placeholder="Город"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+
+            <button id="play">Игарть</button>
+          </div>
+          <div id="alert" class="alert alert-warning" role="alert"></div>
+          <div>
+            <ul id="citiesList" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="alert alert-success"
+        role="alert"
+        id="successAlert"
+        style="display: none"
+      >
+        A simple success alert—check it out!
+      </div>
+    </div>
+    <script>
+      const cities = [
+        "Абингдон",
+        "Амстердам",
+        "Андреаполь",
+        "Антверпен",
+        "Архангельск",
+        "Астрахань",
+        "Атланта",
+        "Афины",
+        "Баден",
+        "Базель",
+        "Бангалор",
+        "Барселона",
+        "Бежецк",
+        "Бендеры",
+        "Берлин",
+        "Берн",
+        "Бишкек",
+        "Талас",
+        "Ош",
+        "Баткен",
+        "Жалал-Абад",
+        "Нарын",
+        "Биробиджан",
+        "Бологое",
+        "Бонн",
+        "Бостон",
+        "Брайзах-на-Рейне",
+        "Бремен",
+        "Будённовск",
+        "Буффало",
+        "Буэнос-Айрес",
+        "Варшава",
+        "Вашингтон",
+        "Веймар",
+        "Вельс",
+        "Вельск",
+        "Вена",
+        "Венеция",
+        "Весьегонск",
+        "Винница",
+        "Владивосток",
+        "Волгоград",
+        "Вологда",
+        "Вормс",
+        "Воронеж",
+        "Выдропуск",
+        "Вышний Волочёк",
+        "Гаврилов-Ям",
+        "Гамбург",
+        "Ганновер",
+        "Гданьск",
+        "Генуя",
+        "Глупов",
+        "Глупов и глуповцы",
+        "Данилов",
+        "Делфт",
+        "Денвер",
+        "Детройт",
+        "Донецк",
+        "Дорчестер",
+        "Дрезден",
+        "Дублин",
+        "Дувр",
+        "Дуйсбург",
+        "Женева",
+        "Зубцов",
+        "Иваново",
+        "Иерусалим",
+        "Измаил",
+        "Изюм",
+        "Ингельхайм-ам-Райн",
+        "Иркутск",
+        "Казань",
+        "Калгари",
+        "Кале",
+        "Калининград",
+        "Калуга",
+        "Калязин",
+        "Караганда",
+        "Каргополь",
+        "Карлсруэ",
+        "Кашин",
+        "Кёльн",
+        "Киев",
+        "Кимры",
+        "Киншаса",
+        "Кишинёв",
+        "Клайпеда",
+        "Кокшетау",
+        "Кола",
+        "Конаково",
+        "Копенгаген",
+        "Корчев",
+        "Корчева",
+        "Коряжма",
+        "Котлас",
+        "Котор",
+        "Краков",
+        "Красноярск",
+        "Красный Холм",
+        "Кувшиново",
+        "Кызыл",
+        "Лан",
+        "Лейпциг",
+        "Лион",
+        "Лихославль",
+        "Лозанна",
+        "Лондон",
+        "Лос-Анджелес",
+        "Луга",
+        "Львов",
+        "Льеж",
+        "Любим",
+        "Мадрид",
+        "Майнц",
+        "Мальборк",
+        "Мамоново",
+        "Мангейм",
+        "Марсель",
+        "Матера",
+        "Мезень",
+        "Мейсен",
+        "Мешхед",
+        "Миасс",
+        "Милан",
+        "Минусинск",
+        "Мирный",
+        "Монреаль",
+        "Мурманск",
+        "Мухосранск",
+        "Мышкин",
+        "Мюнхен",
+        "Назарет",
+        "Нарьян-Мар",
+        "Нахалаль",
+        "Неаполь",
+        "Нелидово",
+        "Нижний Новгород",
+        "Нижний Тагил",
+        "Николаевск-на-Амуре",
+        "Николо-Малица",
+        "Ницца",
+        "Новоржев",
+        "Новосибирск",
+        "Новый Орлеан",
+        "Нью-Йорк",
+        "Нюрнберг",
+        "Омск",
+        "Оренбург",
+        "Осташков",
+        "Оттава",
+        "Павия",
+        "Париж",
+        "Перемышль",
+        "Пермь",
+        "Пиза",
+        "Подгайцы",
+        "Полтава",
+        "Порт-Артур",
+        "Пошехонье",
+        "Прага",
+        "Псков",
+        "Пушкино",
+        "Раздельная",
+        "Рединг",
+        "Реймс",
+        "Ржев",
+        "Рига",
+        "Рим",
+        "Рио-де-Жанейро",
+        "Ростов-на-Дону",
+        "Руан",
+        "Рязань",
+        "Салоники",
+        "Самара",
+        "Сан-Франциско",
+        "Сараево",
+        "Сарапул",
+        "Северная Пальмира",
+        "Северодвинск",
+        "Симбирск",
+        "Сиэтл",
+        "Советск",
+        "Сорренто",
+        "Сочи",
+        "Стамбул",
+        "Старица",
+        "Страсбург",
+        "Судиславль",
+        "Таганрог",
+        "Тверь",
+        "Тегеран",
+        "Тель-Авив",
+        "Тмутаракань",
+        "Тобольск",
+        "Томск",
+        "Торжок",
+        "Торонто",
+        "Торопец",
+        "Трир",
+        "Тулча",
+        "Турин",
+        "Тюмень",
+        "Урюпинск",
+        "Фонтенбло",
+        "Хабаровск",
+        "Ханты-Мансийск",
+        "Харьков",
+        "Хельсинки",
+        "Химки",
+        "Хобарт",
+        "Холмогоры",
+        "Хьюстон",
+        "Цюрих",
+        "Чернигов",
+        "Чикаго",
+        "Шаффхаузен",
+        "Шешурино",
+        "Эль-Чалтен",
+        "Эрфурт",
+        "Ялуторовск",
+        "Яншо",
+        "Углич",
+        "Удомля",
+        "Ужгород",
+      ];
+      let gameData = [];
+      let isJsButtonClicked = false;
+      let timer,
+        timeLeft = 60;
+      const addHtmlButton = document.getElementById("addHtml");
+      const addCssButton = document.getElementById("addCss");
+      const addJsButton = document.getElementById("addJs");
+      const gameInput = document.getElementById("gameInput");
+      const playRoot = document.getElementById("gameForm");
+      const gameButton = document.getElementById("play");
+      const citiesList = document.getElementById("citiesList");
+      const time = document.getElementById("timer");
+      const restart = document.getElementById("restart");
+      const alertHtml = document.getElementById("alert");
+      const extraAlert = document.getElementById("extraAlert");
+      const successAlert = document.getElementById("successAlert");
+
+      addJsButton.addEventListener("click", () => {
+        successAlert.style.display = "none";
+
+        isJsButtonClicked = true;
+        clearInterval(timer);
+
+        if (playRoot.style.display === "none") {
+          showAlert(extraAlert, "Нет структуры! Добавьте HTML!");
+          return;
+        }
+        restart.style.display = "flex";
+        time.style.display = "flex";
+        startTimer();
+      });
+
+      function startTimer() {
+        successAlert.style.display = "none";
+        timer = setInterval(() => {
+          timeLeft--;
+          time.innerHTML = timeLeft;
+          if (timeLeft <= 0) {
+            endGame();
+          }
+        }, 1000);
+      }
+
+      function endGame() {
+        clearInterval(timer);
+        gameButton.disabled = true;
+        successAlert.style.display = "block";
+
+        let score = gameData.length;
+        let message = "";
+
+        if (score > 7) {
+          message = "Отлично, ты как настоящий ученый по городам!";
+        } else if (score > 5) {
+          message = "Хорошо справляешься, продолжай в том же духе!";
+        } else if (score > 3) {
+          message = "Неплохо, но старайся еще лучше!";
+        } else {
+          message = "Нужно больше практики, не отчаивайся!";
+        }
+
+        successAlert.innerHTML = message;
+      }
+
+      function restartGame() {
+        successAlert.style.display = "none";
+        gameData = [];
+        isJsButtonClicked = false;
+        gameButton.disabled = false;
+        timeLeft = 60;
+        time.innerHTML = "60";
+        restart.style.display = "none";
+        time.style.display = "none";
+        clearInterval(timer);
+        renderFunction(gameData);
+      }
+
+      restart.addEventListener("click", restartGame);
+
+      addCssButton.addEventListener("click", () => {
+        addHtmlButton.setAttribute("class", "btn btn-light");
+        addCssButton.setAttribute("class", "btn btn-success");
+        addJsButton.setAttribute("class", "btn btn-primary");
+        gameInput.setAttribute("class", "form-control mr-5");
+        gameButton.setAttribute("class", "btn btn-primary");
+      });
+
+      addHtmlButton.addEventListener("click", () => {
+        playRoot.style.display = "block";
+      });
+
+      gameButton.addEventListener("click", () => {
+        if (!isJsButtonClicked) {
+          showAlert(alertHtml, "Нет логики! Добавьте Javascript!");
+          return;
+        }
+        if (playRoot.style.display === "none") {
+          showAlert(alertHtml, "Нет структуры! Добавьте HTML!");
+          return;
+        }
+
+        processUserInput();
+      });
+
+      function processUserInput() {
+        successAlert.style.display = "none";
+        let userInput = gameInput.value.trim().toLowerCase();
+        gameInput.value = "";
+
+        if (
+          userInput &&
+          cities.map((city) => city.toLowerCase()).includes(userInput)
+        ) {
+          if (
+            gameData.some(
+              (data) =>
+                data.userAnswer.toLowerCase() === userInput ||
+                data.jsAnswer.toLowerCase() === userInput
+            )
+          ) {
+            showAlert(alertHtml, "Такой город уже ввели!");
+            return;
+          }
+
+          showSpinner(true);
+          setTimeout(() => {
+            showSpinner(false);
+            let randomCity = getRandomCity();
+            gameData.push({
+              jsAnswer: randomCity.toUpperCase(),
+              userAnswer: userInput.toUpperCase(),
+            });
+            renderFunction(gameData);
+          }, 2000);
+        } else {
+          showAlert(alertHtml, "Такого города нет в базе!");
+        }
+      }
+
+      function showSpinner(show) {
+        document.getElementById("spinner").style.display = show
+          ? "block"
+          : "none";
+      }
+
+      function getRandomCity() {
+        let randomCity;
+        do {
+          randomCity = cities[Math.floor(Math.random() * cities.length)];
+        } while (
+          gameData.some(
+            (data) => data.jsAnswer.toLowerCase() === randomCity.toLowerCase()
+          )
+        );
+        return randomCity;
+      }
+
+      function showAlert(element, message) {
+        element.style.display = "block";
+        element.innerHTML = message;
+        setTimeout(() => {
+          element.style.display = "none";
+        }, 2000);
+      }
+
+      function renderFunction(cities) {
+        citiesList.innerHTML = cities.length
+          ? cities
+              .map(
+                (item) =>
+                  `<li class="list-group-item"><b>Ответ JS:</b> ${item.jsAnswer} <b>Ваш ответ:</b> ${item.userAnswer}</li>`
+              )
+              .join("")
+          : "";
+      }
+    </script>
+  </body>
+</html>
