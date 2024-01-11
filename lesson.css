@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .backLink {
   position: fixed;
   top: 0;
@@ -59,4 +54,44 @@
   background-color: #4b4908;
   padding: 10px;
   color: white;
+}
+
+.hoverEffect:hover {
+  background-color: #ff1361;
+}
+.hoverEffect {
+  height: 100px;
+  background-color: yellow;
+  margin-top: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hoverEffectButton {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: green;
+}
+.hoverEffectButton:active {
+  background-color: rgb(160, 92, 23);
+}
+
+#example1 {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+  margin: 20px;
+}
+
+#example2 {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+  margin: 20px;
 }
