@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  margin-top: 20px;
+  background-color: bisque;
+  min-height: 500px;
+  padding-bottom: 100px;
+}
+.card-one {
+  width: 320px;
+  background-color: white;
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.card-one-text {
+  font-family: "Courier New", Courier, monospace;
+}
+.card-one-image {
+  border-radius: 3px;
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: padding 0.3s, background-color 0.3s, color 0.3s;
+  margin-top: 30px;
+}
+.card-one-image:hover {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: white;
+  color: darkblue;
+  border: 1px solid darkblue;
+}
+.card-one-name {
+  font-weight: bold;
+  font-size: 22px;
+  display: inline-block;
+  margin-top: 30px;
+}
+.card-one-surname {
+  color: gray;
+  margin-top: 10px;
+}
+.card-descr-box {
+  display: inline-block;
+}
+
+/* card-two */
+.card-two {
+  width: 320px;
+  display: inline-block;
+  padding: 20px;
+  background-color: rgb(190, 222, 135);
+  border-radius: 10px;
+  margin-left: 50px;
+}
+.card-two-image {
+  width: 320px;
+  border-radius: 10px;
+}
+.card-two-name {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(37, 117, 197);
+  margin-top: 10px;
+}
+.card-two-projce {
+  color: rgb(92, 92, 142);
+  text-align: center;
+  margin-top: 10px;
+}
+.images {
+  margin-left: 90px;
+  margin-top: 50px;
+}
+.text-align {
+  margin-left: 20px;
+  cursor: pointer;
+}
+.card-three {
+  background-color: grey;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 300px;
+  display: inline-block;
+  margin-left: 50px;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.card-three:hover {
+  background-color: rgb(132, 113, 113);
+}
+.card-three-image {
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.card-three-name {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.folow {
+  border-radius: 20px;
+  background-color: rgb(60, 60, 198);
+  border: none;
+  padding: 10px 35px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: block;
+}
+.folow:hover {
+  background-color: rgb(36, 36, 181);
+}
+.card-four-button {
+  padding: 5px 10px;
+  background-color: rgb(207, 199, 214);
+  color: blueviolet;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.card-four-button:hover {
+  background-color: rgb(178, 159, 195);
+}
+.card-four,
+.card-five {
+  padding: 20px;
+  width: 320px;
+  border-radius: 10px;
+  background-color: white;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+.card-four-upper-button {
+  border: none;
+  border-radius: 5px;
+  border: 1px solid rgb(207, 199, 214);
+  color: blueviolet;
+  padding: 10px 35px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.card-four-upper-button span {
+  margin-left: 10px;
+}
+.card-four-upper-button:hover {
+  transition: background-color 0.3s;
+  background-color: rgb(178, 159, 195);
+}
+.card-four-subtitle,
+.card-five-subtitle {
+  color: gray;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+.card-four-title,
+.card-five-title {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 10px;
+}
+.card-five-100 {
+  background-color: rgb(178, 159, 195);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.card-five-100-text {
+  font-weight: bold;
+  color: blueviolet;
+}
+.card-five-100-text-22 {
+  color: rgb(72, 36, 106);
+  margin-top: 10px;
+}
+
+.card-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: bisque;
+}
+.card-six {
+  width: 600px;
+  margin: 0 auto;
+  background-color: rgb(81, 132, 114);
+  border: 5px solid black;
+  border-radius: 10px;
+}
+.card-six-container {
+  padding: 25px;
+}
+.card-six-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.card-six-title2 {
+  color: rgb(61, 61, 116);
+  margin-top: 15px;
+  font-family: sans-serif;
+}
+.card-six-title3 {
+  color: rgb(61, 61, 116);
+  margin-top: 15px;
+  font-family: sans-serif;
+}
+.card-six-button {
+  border: none;
+  border: 5px solid black;
+  border-radius: 4px;
+  background-color: white;
+  color: darkcyan;
+  padding: 10px 35px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+.card-six-button:hover {
+  background-color: rgb(96, 172, 150);
+  color: white;
+}
+
+.card-nine {
+  background-color: black;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  display: inline-block;
+}
+.card-nine-subtile {
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+}
+.card-nine-sub {
+  margin-top: 43px;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+.card-nine-sub span {
+  color: yellow;
+}
+
+.card-seven-desc {
+  padding: 15px;
+  background-color: white;
+}
+.card-seven {
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgb(108, 148, 108);
+  display: inline-block;
+  width: 250px;
+  border-radius: 15px;
+  margin-left: 120px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.card-seven-title {
+  text-align: center;
+  color: rgb(108, 148, 108);
+  font-family: sans-serif;
+  font-size: 22px;
+}
+.card-seven-subtitle {
+  font-family: sans-serif;
+  color: rgb(90, 90, 159);
+  margin-top: 20px;
+}
+.card-seven-button {
+  background: none;
+  border: none;
+  color: rgb(108, 148, 108);
+  cursor: pointer;
+  margin-top: 20px;
+}
+.card-seven-button:hover {
+  color: rgb(69, 138, 69);
+}
+.list-container {
+  display: block;
+  margin: 10px auto;
+  background-color: darkgoldenrod;
+}
+
+.last-card {
+  padding: 10px 0 10px 0;
+  border: 3px solid gray;
+  border-radius: 5px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.last-card-text {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 15px;
+  font-family: sans-serif;
+  font-weight: 500;
+  border-radius: 4px;
+}
