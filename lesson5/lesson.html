@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LESSON</title>
+    <link rel="stylesheet" href="./lesson.css" />
+  </head>
+  <body>
+    <p
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: cadetblue;
+        z-index: 1009;
+      "
+    >
+      <a class="link-opacity-10-hover" style="color: white" href="../index.html"
+        >Назад</a
+      >
+    </p>
+
+    <div class="formContainer">
+      <form>
+        <label for="fname">First Name</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Your name.."
+        />
+
+        <label for="lname">Last Name</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="Your last name.."
+        />
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+        <label for="pass">Password</label>
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          placeholder="Your password.."
+        />
+        <label for="date">Birth</label>
+        <input
+          type="date"
+          id="date"
+          name="pass"
+          placeholder="Your password.."
+        />
+        <label for="date">Message</label>
+        <textarea
+          style="display: block; width: 100%"
+          rows="4"
+          placeholder="Your message.."
+        ></textarea>
+
+        <div for="pass">Are you comming to the event</div>
+        <label for="yes">YES</label>
+        <input
+          type="radio"
+          id="yes"
+          name="pass"
+          placeholder="Your password.."
+        />
+        <label for="no">NO</label>
+
+        <input type="radio" id="no" name="pass" placeholder="Your password.." />
+        <br />
+        <label for="check">Call me</label>
+        <input type="checkbox" id="check" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

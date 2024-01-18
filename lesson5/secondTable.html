@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💎Table</title>
+
+    <link rel="stylesheet" href="secondTable.css" />
+  </head>
+  <body>
+    <div class="container mt-5 mb-5">
+      <p
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: cadetblue;
+          z-index: 1009;
+        "
+      >
+        <a
+          class="link-opacity-10-hover"
+          style="color: white"
+          href="../index.html"
+          >Назад</a
+        >
+      </p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Бухгалтерия</th>
+        </tr>
+        <tr>
+          <th id="header1">Контракт</th>
+          <th>Сумма</th>
+          <th>Дата оплаты</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Алишер Б.</td>
+          <td>$1000</td>
+          <td>01.01.2024</td>
+          <td><span class="paid">Оплачен</span></td>
+        </tr>
+        <tr>
+          <td>Айжан С.</td>
+          <td>$1500</td>
+          <td>10.01.2024</td>
+          <td><span class="pending">В ожидании</span></td>
+        </tr>
+        <tr>
+          <td headers="header1">Асан Н.</td>
+          <td>$800</td>
+          <td>05.01.2024</td>
+          <td><span class="overdue">Просрочен</span></td>
+        </tr>
+        <tr>
+          <td>Алтынай Д.</td>
+          <td>$8100</td>
+          <td>05.01.2024</td>
+          <td><span class="overdue">Просрочен</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

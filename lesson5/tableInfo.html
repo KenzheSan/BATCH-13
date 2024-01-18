@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💎lesson 5 info</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./slider.css" />
+  </head>
+  <body>
+    <div class="container mt-5 mb-5">
+      <p
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: cadetblue;
+          z-index: 1009;
+        "
+      >
+        <a
+          class="link-opacity-10-hover"
+          style="color: white"
+          href="../index.html"
+          >Назад</a
+        >
+      </p>
+      <h1 class="display-4">TABLE</h1>
+      <a href="https://doka.guide/html/tables/" target="_blank"
+        >Хочу знать больше</a
+      >
+      <div class="card">
+        <div class="card-body">
+          В HTML для создания таблиц существует набор семантических тегов:
+
+          <code> &lt;table&gt;</code>
+          <code>&lt;thead&gt;</code>
+          <code> &lt;tbody&gt; </code>
+          <code> &lt;tfoot&gt;</code>
+          <code>&lt;th&gt;</code>
+          <code>&lt;tr&gt;</code>
+          <code>&lt;td&gt;</code>
+          <br />
+          <strong> Про семантические теги - потом</strong>
+        </div>
+        <div class="card-body">
+          Тег &lt;table&gt; используется для создания таблиц в HTML. Таблицы в
+          HTML состоят из строк ( &lt;tr&gt;), столбцов (&lt;td&gt;) и
+          заголовков столбцов ( &lt;th&gt;).
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-body">
+          <img src="./talbe.png" alt="" width="100%" height="500" />
+        </div>
+      </div>
+      <div class="mt-5">
+        <h4 class="display-5">Элементы таблицы:</h4>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <code>&lt;table&gt;</code>: Определяет таблицу.
+          </li>
+          <li class="list-group-item">
+            <code>&lt;tr&gt;</code>: Определяет строку в таблице.
+          </li>
+          <li class="list-group-item">
+            <code>&lt;th&gt;</code>: Определяет заголовок столбца. Обычно
+            используется в первой строке или первом столбце.
+          </li>
+          <li class="list-group-item">
+            <code>&lt;td&gt;</code>: Определяет обычную ячейку в таблице.
+          </li>
+        </ul>
+        <h4 class="display-5">Атрибуты таблицы:</h4>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <code>border</code>: Устанавливает толщину границы таблицы (обычно
+            для стилизации).
+          </li>
+          <li class="list-group-item">
+            <code>cellpadding</code>: Устанавливает отступ внутри ячеек.
+          </li>
+          <li class="list-group-item">
+            <code>cellspacing</code>: Устанавливает расстояние между ячейками.
+          </li>
+          <li class="list-group-item">
+            Их редко применяют , для это есть <code>CSS</code>
+          </li>
+        </ul>
+        <h4 class="display-5">CSS-псевдокласс: <code>:nth-child</code></h4>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <code>:nth-child(odd)</code> выбирает все нечетные элементы.
+          </li>
+          <li class="list-group-item">
+            <code>:nth-child(even)</code> выбирает все четные элементы.
+          </li>
+          <li class="list-group-item">
+            <code> :nth-child(3n)</code> выбирает каждый третий элемент.
+          </li>
+          <li class="list-group-item">
+            <code>:nth-child(2n+1)</code> выбирает каждый нечетный элемент,
+            начиная с первого.
+          </li>
+        </ul>
+        <h4 class="display-5">
+          У дочерних элементов таблицы, таких как
+          <th>(заголовки столбцов) и</th>
+          <td>
+            (ячейки данных), есть ряд атрибутов, которые могут быть использованы
+            для дополнительной стилизации и оформления. Вот
+            <code><b>некоторые</b></code> из наиболее часто используемых
+            атрибутов:
+          </td>
+        </h4>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <code>colspan</code>: Определяет, на сколько столбцов должна
+            распространяться ячейка.
+          </li>
+          <li class="list-group-item">
+            <code>rowspan</code>: Определяет, на сколько строк должна
+            распространяться ячейка.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
