@@ -186,3 +186,35 @@
   padding: 20px;
   z-index: 100;
 }
+.search,
+.home,
+.email {
+  padding: 10px;
+  background-color: yellow;
+}
+.search::before {
+  content: "🔎";
+  padding: 10px;
+  background-color: darkgray;
+  border-radius: 50%;
+}
+.card-5 {
+  margin-top: 50px;
+}
+
+.home::before {
+  content: "🏠";
+  padding: 10px;
+  background-color: darkgray;
+  border-radius: 50%;
+}
+.email::before {
+  content: "✉️";
+  padding: 10px;
+  background-color: darkgray;
+  border-radius: 50%;
+}
+
+.list li::after {
+  content: "🔜";
+}
