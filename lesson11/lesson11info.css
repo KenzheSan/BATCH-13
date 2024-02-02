@@ -1,0 +1,8 @@
+.span-text {
+  font-weight: 600;
+  color: red;
+}
+.extra {
+  border: 1px solid grey;
+  border-radius: 10px;
+}
